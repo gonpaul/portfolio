@@ -1,7 +1,10 @@
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function ThankYou() {
+  const t = useTranslations('ThankYou');
+  
   return (
     <>
       <Navigation />
@@ -11,7 +14,7 @@ export default function ThankYou() {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-black text-black mb-4 relative inline-block">
               <span className="relative">
-                Thank You!
+                {t('header')}
                 <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-1 h-full bg-black"></div>
                 <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-1 h-full bg-black"></div>
               </span>
@@ -27,15 +30,14 @@ export default function ThankYou() {
               </svg>
             </div>
 
-            <h2 className="text-3xl font-bold text-black mb-6">Message Received!</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">{t('title')}</h2>
             
             <div className="space-y-4 text-gray-700 leading-relaxed max-w-2xl mx-auto">
               <p className="text-lg">
-                Thank you for reaching out! I've received your message and will get back to you as soon as possible.
+                {t('message1')}
               </p>
               <p>
-                I typically respond within 24 hours, so you can expect to hear from me soon. In the meantime, 
-                feel free to explore more of my work or check out my latest blog posts.
+                {t('message2')}
               </p>
             </div>
 
@@ -45,13 +47,13 @@ export default function ThankYou() {
                 href="/"
                 className="bg-black text-white px-8 py-4 font-semibold rounded-lg hover:bg-gray-800 transition-all duration-200 transform hover:scale-105"
               >
-                Return to Home
+                {t('buttons.returnHome')}
               </Link>
               <Link 
                 href="/blog"
                 className="bg-transparent border-2 border-black text-black px-8 py-4 font-semibold rounded-lg hover:bg-black hover:text-white transition-all duration-200 transform hover:scale-105"
               >
-                Read My Blog
+                {t('buttons.readBlog')}
               </Link>
             </div>
 
@@ -64,8 +66,8 @@ export default function ThankYou() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Email Confirmation</h3>
-                  <p className="text-gray-600 text-sm">Check your inbox for a confirmation</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">{t('info.emailConfirmation.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('info.emailConfirmation.description')}</p>
                 </div>
                 
                 <div className="p-4">
@@ -74,8 +76,8 @@ export default function ThankYou() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Quick Response</h3>
-                  <p className="text-gray-600 text-sm">I'll reply within 24 hours</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">{t('info.quickResponse.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('info.quickResponse.description')}</p>
                 </div>
                 
                 <div className="p-4">
@@ -84,8 +86,8 @@ export default function ThankYou() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="font-semibold text-gray-800 mb-1">Fast Turnaround</h3>
-                  <p className="text-gray-600 text-sm">Quick project discussions</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">{t('info.fastTurnaround.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('info.fastTurnaround.description')}</p>
                 </div>
               </div>
             </div>
