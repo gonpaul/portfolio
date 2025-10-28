@@ -1,0 +1,357 @@
+{
+  "HomePage": {
+    "greeting": "Hello",
+    "titles": {
+        "name": "I'm Pavel Goncharov",
+        "job": "Full-stack Developer",
+        "message": "Open for work"
+    } 
+  },
+  "Navigation": {
+    "home": "Home",
+    "works": "Works",
+    "blog": "Blog",
+    "about": "About me",
+    "contact": "Contact"
+  },
+  "Contact": {
+    "title": "05 : Contact",
+    "heading": "Get in Touch",
+    "description": "Feel free to reach out if you'd like to work together or just want to say hello!",
+    "nameLabel": "Name *",
+    "emailLabel": "Email *",
+    "messageLabel": "Message *",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your.email@example.com",
+    "messagePlaceholder": "Tell me about your project or just say hello...",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "emailHeading": "Email",
+    "locationHeading": "Location",
+    "responseTimeHeading": "Response Time",
+    "responseTimeValue": "Within 24 hours"
+  }    
+  ,
+  "About": {
+    "sidebar": {
+      "introduction": "Introduction",
+      "workExperience": "Work Experience",
+      "education": "Education",
+      "technicalSkills": "Technical Skills"
+    },
+    "headings": {
+      "workExperience": "Work Experience",
+      "education": "Education",
+      "technicalSkills": "Technical Skills",
+      "certificates": "Certificates"
+    },
+    "buttons": {
+      "scheduleCall": "Schedule a call",
+      "contactMe": "Contact me",
+      "viewProject": "View Project Details",
+      "getInTouch": "Get In Touch"
+    },
+    "cta": {
+      "title": "Let's Work Together",
+      "text": "I'm interested in new opportunities and exciting projects."
+    },
+    "status": {
+      "inProcess": "in process"
+    },
+    "personal": {
+      "name": "Pavel Goncharov",
+      "title": "Full-stack developer",
+      "location": "Europe/Saint-Petersburg",
+      "introduction": "I'm Pavel Goncharov, a determined and motivated full-stack developer focused on modern web technologies. I specialize in taking products from 0 to 1, building complete solutions from concept to deployment. I'm ready to jump on great opportunities and bring passion and expertise to every project."
+    },
+    "languages": {
+      "english": "English",
+      "russian": "Russian"
+    },
+    "education": {
+      "count": "1",
+      "0": {
+        "institution": "Hexlet college",
+        "description": "Vocational degree in \"Information Systems and Programming\"",
+        "timeframe": "2022 - 2026",
+        "isFinished": "false"
+      }
+    },
+    "technicalSkillsData": {
+      "count": "3",
+      "0": {
+        "title": "Frontend Development",
+        "description": "Building modern, responsive web applications with React, Next.js, and TypeScript",
+        "tags": {
+          "count": "7",
+          "0": "React",
+          "1": "Redux",
+          "2": "Next.js",
+          "3": "TypeScript",
+          "4": "JavaScript",
+          "5": "HTML/CSS",
+          "6": "TailwindCSS"
+        }
+      },
+      "1": {
+        "title": "Backend Development",
+        "description": "Creating robust server-side applications and APIs",
+        "tags": {
+          "count": "9",
+          "0": "Node.js",
+          "1": "Python",
+          "2": "Express",
+          "3": "Nest",
+          "4": "Flask",
+          "5": "PostgreSQL",
+          "6": "SQLite",
+          "7": "JWT",
+          "8": "C++"
+        }
+      },
+      "2": {
+        "title": "Tools & Technologies",
+        "description": "Version control, deployment, platforms and development tools",
+        "tags": {
+          "count": "5",
+          "0": "Git",
+          "1": "Docker",
+          "2": "GCP",
+          "3": "n8n",
+          "4": "Cursor"
+        }
+      }
+    },
+    "workExperience": {
+      "personalSaaS": {
+        "company": "Personal SaaS Project",
+        "role": "Full-Stack Developer & Product Manager",
+        "timeframe": "2025 - Present",
+        "achievements": {
+          "0": "Defined product features and roadmap using agile methodology",
+          "1": "Organized development using Scrum sprints for efficient project management",
+          "2": "Built full-stack application with Next.js for both frontend and backend",
+          "3": "Designed and implemented comprehensive database architecture",
+          "4": "Developed role-based UI system with dedicated admin panel",
+          "5": "Implemented advanced React hooks for optimal component performance",
+          "6": "Integrated Redux for centralized state management across the application",
+          "7": "Deployed application using Docker containers on VPS infrastructure"
+        },
+        "achievementsCount": "8"
+      },
+      "onmars": {
+        "company": "Onmars",
+        "role": "Freelance Full-Stack Developer",
+        "timeframe": "2025",
+        "achievements": {
+          "0": "Designed complete UI/UX system using Figma based on client requirements",
+          "1": "Built comprehensive backend system with Nest.js including database modeling",
+          "2": "Developed responsive frontend application using Next.js",
+          "3": "Created admin panel for easy content management and data updates",
+          "4": "Implemented automated synchronization scripts for seamless update workflow",
+          "5": "Established end-to-end workflow where user forms are sent automatically to CRM"
+        },
+        "achievementsCount": "6"
+      },
+      "smartFace": {
+        "company": "SmartFace (Pet project)",
+        "role": "Full-Stack Developer",
+        "timeframe": "2022",
+        "achievements": {
+          "0": "Developed full-stack application with React and Node.js",
+          "1": "Implemented user authentication and database integration",
+          "2": "Created modern UI with particle effects and responsive design"
+        },
+        "achievementsCount": "3"
+      },
+      "roboFriends": {
+        "company": "Robofriends (Pet project)",
+        "role": "Frontend Developer",
+        "timeframe": "2021 - 2022",
+        "achievements": {
+          "0": "Built React application demonstrating fundamental concepts",
+          "1": "Implemented real-time search functionality",
+          "2": "Integrated API with external services"
+        },
+        "achievementsCount": "3"
+      }
+    }
+  },
+  "Works": {
+    "header": "02 : Works",
+    "buttons": {
+      "viewDetails": "View Details",
+      "liveDemo": "Live Demo",
+      "backToWorks": "Back to Works"
+    },
+    "sections": {
+      "about": "About This Project",
+      "features": "Key Features",
+      "challenges": "Challenges & Solutions",
+      "technologies": "Technologies Used",
+      "gallery": "Project Gallery"
+    },
+    "projectPrefix": "Project",
+    "items": {
+      "1": {
+        "title": "SmartFace App",
+        "description": "Full-stack application built with React and Node.js + Express.js on the backend. Features user authentication, database integration with PostgreSQL, and modern UI components.",
+        "category": "Full-Stack",
+        "detailedDescription": "The frontend app was built with React and Vite, using npm packages like tsparticles and parallax-tilt to make the visuals more appealing. Routing regarding authorization. For the backend app, Node, Express, bcrypt, and Knex are the main tools. Knex enables to connect to a database, retrieve and add the data. The register endpoint required me to use a transaction. Here, PostgreSQL with two tables also came in handy.",
+        "features": {
+          "count": "5",
+          "0": "User authentication and authorization",
+          "1": "Database integration with PostgreSQL",
+          "2": "Modern UI with particle effects",
+          "3": "Responsive design",
+          "4": "Secure password hashing with bcrypt"
+        },
+        "challenges": {
+          "count": "4",
+          "0": "Implementing secure user authentication",
+          "1": "Database transaction management",
+          "2": "Creating an appealing user interface",
+          "3": "Handling user registration and login flows"
+        }
+      },
+      "2": {
+        "title": "Robofriends",
+        "description": "React application that demonstrates fundamental React concepts including hooks, components, and one-way data flow. Features API integration and search functionality.",
+        "category": "Frontend",
+        "detailedDescription": "This project challenged me to understand the fundamentals of React, its hooks, reactivity, components and one way data flow. An api was connected through url, I understood how fetch api works, the idea of a callback function and chaining thenables. The searching algorithm included Javascript DOM accessing methods and passing arguments as properties.",
+        "features": {
+          "count": "5",
+          "0": "Real-time search functionality",
+          "1": "API integration with external services",
+          "2": "Component-based architecture",
+          "3": "Responsive design",
+          "4": "Interactive user interface"
+        },
+        "challenges": {
+          "count": "4",
+          "0": "Understanding React hooks and state management",
+          "1": "Implementing efficient search algorithms",
+          "2": "API integration and data fetching",
+          "3": "Component reusability and props passing"
+        }
+      },
+      "3": {
+        "title": "Unidesign Layout",
+        "description": "Custom layout built completely from scratch as an exercise. Focuses on responsive design principles and modern CSS techniques.",
+        "category": "Design",
+        "detailedDescription": "This layout was build completely from scratch as an exercise. Not mobile-friendly initially, but later improved with responsive design principles.",
+        "features": {
+          "count": "4",
+          "0": "Custom CSS styling",
+          "1": "Responsive design principles",
+          "2": "Modern layout techniques",
+          "3": "Cross-browser compatibility"
+        },
+        "challenges": {
+          "count": "4",
+          "0": "Creating responsive layouts from scratch",
+          "1": "CSS positioning and flexbox",
+          "2": "Cross-browser compatibility",
+          "3": "Mobile-first design approach"
+        }
+      },
+      "4": {
+        "title": "Portfolio Website",
+        "description": "Modern portfolio website built with Next.js, featuring responsive design, blog functionality, and contact form integration.",
+        "category": "Full-Stack",
+        "detailedDescription": "A modern portfolio website showcasing my work and skills. Built with Next.js for optimal performance and SEO.",
+        "features": {
+          "count": "5",
+          "0": "Server-side rendering with Next.js",
+          "1": "Responsive design with Tailwind CSS",
+          "2": "Blog functionality",
+          "3": "Contact form integration",
+          "4": "SEO optimization"
+        },
+        "challenges": {
+          "count": "4",
+          "0": "Implementing SSR for better performance",
+          "1": "Creating a responsive design system",
+          "2": "Integrating blog functionality",
+          "3": "Optimizing for SEO"
+        }
+      },
+      "5": {
+        "title": "Onmars Real Estate Platform",
+        "description": "Comprehensive business platform with custom UI/UX design, full-stack development, and automated CRM integration for seamless workflow management.",
+        "category": "Full-Stack",
+        "detailedDescription": "A complete business system built from scratch including UI/UX design, backend development, frontend application, admin panel, and automated synchronization for properties data update",
+        "features": {
+          "count": "8",
+          "0": "Complete UI/UX system designed in Figma",
+          "1": "Comprehensive backend built with Nest.js",
+          "2": "Responsive frontend application using Next.js",
+          "3": "Admin panel for content management",
+          "4": "Automated synchronization scripts",
+          "5": "Seamless CRM integration workflow",
+          "6": "Database modeling and architecture",
+          "7": "End-to-end form processing system"
+        },
+        "challenges": {
+          "count": "6",
+          "0": "Designing intuitive UI/UX based on client requirements",
+          "1": "Building scalable backend architecture with Nest.js",
+          "2": "Creating seamless CRM integration workflow",
+          "3": "Implementing automated synchronization scripts",
+          "4": "Developing role-based admin panel",
+          "5": "Ensuring data consistency across systems"
+        }
+      },
+      "6": {
+        "title": "Osbias - Text Editor for Enhanced Thinking",
+        "description": "Comprehensive cognitive enhancement platform that combines structured thinking frameworks with AI-powered assistance to help users become better thinkers and more intentional humans.",
+        "category": "Full-Stack",
+        "detailedDescription": "A mature cognitive enhancement platform that bridges personal knowledge management and collaborative reasoning. Features sophisticated journal editing, AI-powered assistance, thinking frameworks, goal management, and comprehensive publishing capabilities. Built with production-ready infrastructure including 15+ API endpoints, complete documentation, and advanced features.",
+        "features": {
+          "count": "14",
+          "0": "Sophisticated CodeMirror-based journal editor with framework-guided writing",
+          "1": "Real-time AI chat integration for cognitive assistance and bias checking",
+          "2": "Idea validation and paraphrasing capabilities powered by AI",
+          "3": "Create and apply thinking frameworks (First Principles, OODA Loop, etc.)",
+          "4": "Goal management with actionable items and progress tracking",
+          "5": "Publish entries to public feed for collaborative reasoning",
+          "6": "Export work in multiple formats for external use",
+          "7": "Template systems for consistent thinking patterns",
+          "8": "Complete user authentication and admin panels",
+          "9": "Rate limiting and security features",
+          "10": "Keyboard shortcuts and modern dark-themed UI",
+          "11": "15+ API endpoints with complete Swagger documentation",
+          "12": "SQLite database with proper migrations and production-ready infrastructure",
+          "13": "Redux state management and advanced React hooks"
+        },
+        "challenges": {
+          "count": "8",
+          "0": "Defining product features and creating effective roadmap",
+          "1": "Organizing development workflow using Scrum methodology",
+          "2": "Building scalable full-stack architecture with Next.js",
+          "3": "Designing comprehensive database architecture",
+          "4": "Implementing role-based access control system",
+          "5": "Optimizing performance with advanced React hooks",
+          "6": "Managing complex state with Redux across the application",
+          "7": "Setting up reliable deployment pipeline with Docker and VPS"
+        }
+      }
+    }
+  },
+  "Blog": {
+    "header": "03 : Blog",
+    "categories": {
+      "all": "All Posts",
+      "business": "Business",
+      "technology": "Technology",
+      "philosophy": "Philosophy",
+      "science": "Science",
+      "life": "Life"
+    },
+    "publishedOn": "Published on",
+    "backToBlog": "Back to Blog",
+    "discussThisTopic": "Discuss This Topic",
+    "loading": "Loading posts...",
+    "readMore": "Read more"
+  }
+}

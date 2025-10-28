@@ -1,0 +1,36 @@
+
+blockquote {
+    font-size: 10px;
+    font-style: italic;
+    font-weight: lighter;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: #e4e6eb;
+    border-radius: 10px;
+
+}
+
+/* p {
+    font-size: 12px;
+} */
+
+.margin-40 {
+    margin-bottom: 40px;
+}
+
+.blog-list {
+    list-style-type: none;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    @media (max-width: 991.98px) {
+        border-bottom: 1px solid #000 !important;
+    }
+}
+
+.color-black {
+    color: black;
+    &:hover {
+        color: black;
+    }
+
+}
