@@ -17,17 +17,6 @@ export const workExperience = [
     ],
     workSlug: '6'
   },
-//   {
-//     company: 'SmartFace',
-//     role: 'Full-Stack Developer',
-//     timeframe: '2025',
-//     achievements: [
-//       'Developed full-stack application with Next.js',
-//       'Implemented user authentication and database integration',
-//       'Created modern UI with particle effects and responsive design'
-//     ],
-//     workSlug: '1'
-//   },
   {
     company: 'Onmars',
     role: 'Freelance Full-Stack Developer',
