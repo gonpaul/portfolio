@@ -1,7 +1,18 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 
-const dbPath = path.join(process.cwd(), 'blog.db');
+// Use environment variable for DB path, fallback to current directory
+const dbPath = process.env.DB_PATH || path.join(process.cwd(), 'blog.db');
+
+// Ensure directory exists if DB_PATH is set
+if (process.env.DB_PATH) {
+  const dbDir = path.dirname(dbPath);
+  const fs = await import('fs');
+  if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true });
+  }
+}
+
 const db = new Database(dbPath);
 
 // Initialize database
