@@ -20,22 +20,22 @@ function getCorsHeaders(request: NextRequest): Record<string, string> {
     ?.split(',')
     .map(o => o.trim())
     .filter(o => o) || [];
-  
+
   // REQUIRE ALLOWED_ORIGINS to be set - no fallback
   if (allowedOrigins.length === 0) {
     console.warn('ALLOWED_ORIGINS not configured - CORS will not allow any origins');
   }
-  
+
   const headers: Record<string, string> = {
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   };
-  
+
   if (origin && allowedOrigins.includes(origin)) {
     headers['Access-Control-Allow-Origin'] = origin;
     headers['Access-Control-Allow-Credentials'] = 'true';
   }
-  
+
   return headers;
 }
 
@@ -48,8 +48,8 @@ export async function POST(request: NextRequest) {
   // Check authentication
   const authHeader = request.headers.get('authorization');
   const apiKey = process.env.API_KEY;
-  
-  if (!apiKey || !authHeader || authHeader.replace(/^Bearer\\s+/i, '') !== apiKey) {
+
+  if (!apiKey || !authHeader || authHeader.replace(/^Bearer\s+/i, '') !== apiKey) {
     return NextResponse.json(
       { error: 'Unauthorized', message: 'Valid API key required' },
       { status: 401, headers: getCorsHeaders(request) }
