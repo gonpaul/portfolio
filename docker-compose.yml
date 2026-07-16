@@ -32,9 +32,9 @@ services:
       - NODE_ENV=production
       - PORT=9010
       # REQUIRED: API_KEY for osbias webhook authentication
-      - API_KEY=${API_KEY:?API_KEY environment variable is required}
-      # REQUIRED: CORS origins (comma-separated, no default)
-      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:?ALLOWED_ORIGINS is required - set in .env or export ALLOWED_ORIGINS=https://os.gonpaul.com}
+      - API_KEY=${API_KEY}
+      # REQUIRED: CORS origins (comma-separated) - must include osbias origin
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
     expose:
       - "9010"
     volumes:
