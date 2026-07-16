@@ -98,19 +98,63 @@ npm start
 pm2 start ecosystem.config.js
 ```
 
-## TODO: Docker Deployment 
+## Docker Deployment
 
-1. Build the Docker image:
+### Prerequisites
+- Docker and Docker Compose installed
+- `.env.local` file with required variables
+
+### Setup
+
+1. Copy `.example` to `.env.local` and configure:
 ```bash
-docker build -t portfolio .
+cp .example .env.local
+# Edit .env.local to set API_KEY and ALLOWED_ORIGINS
 ```
 
-2. Run the container:
+2. Required environment variables in `.env.local`:
 ```bash
-docker run -p 3000:3000 portfolio
+# REQUIRED: Shared secret for osbias webhook authentication
+API_KEY=your-secure-api-key-here
+
+# REQUIRED: CORS origins (comma-separated) - origins allowed to make API requests
+ALLOWED_ORIGINS=https://os.gonpaul.com,https://gonpaul.com
 ```
-- Build the Docker image
-- Deploy to any container platform (AWS, GCP, Azure, etc.) or vps
+
+3. Build and run with Docker Compose:
+```bash
+docker-compose --env-file .env.local up -d
+```
+
+Or build manually:
+```bash
+# Load .env.local
+set -a && source .env.local && set +a
+# Build the Docker image
+docker build -t personal-website .
+# Run the container
+docker run -d -p 9010:9010 \
+  -e API_KEY="$API_KEY" \
+  -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" \
+  -v personal-website-data:/app/data \
+  personal-website
+```
+
+### API Integration with osbias
+
+When configuring osbias PublishModal for "API" destination:
+
+- **URL**: `https://my.gonpaul.com/api/posts` (via Traefik) or `http://localhost:9010/api/posts` (direct)
+- **Content Type Mapping**:
+```json
+{
+  "title": "{{title}}",
+  "content": "{{content}}"
+}
+```
+- **Auth**: Bearer token using your `API_KEY`
+
+Note: `slug` is auto-generated from title, and `category` defaults to "technology".
 
 ## TODO: Performance
 

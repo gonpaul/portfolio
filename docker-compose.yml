@@ -1,0 +1,68 @@
+version: "3.9"
+
+services:
+  traefik:
+    image: traefik:v3.1
+    command:
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      # Let's Encrypt configuration (only used in production)
+      - --certificatesresolvers.le.acme.email=${TRAEFIK_ACME_EMAIL:-admin@example.com}
+      - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.le.acme.httpchallenge=true
+      - --certificatesresolvers.le.acme.httpchallenge.entrypoint=web
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt:/letsencrypt
+    networks:
+      - web
+
+  app:
+    build:
+      context: .
+    image: personal-website:latest
+    environment:
+      - NODE_ENV=production
+      - PORT=9010
+      # REQUIRED: API_KEY for osbias webhook authentication
+      - API_KEY=${API_KEY:?API_KEY environment variable is required}
+      # REQUIRED: CORS origins (comma-separated, no default)
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:?ALLOWED_ORIGINS is required - set in .env or export ALLOWED_ORIGINS=https://os.gonpaul.com}
+    expose:
+      - "9010"
+    volumes:
+      - personal-website-data:/app/data
+    labels:
+      - "traefik.enable=true"
+      # HTTPS router with subdomain prefix
+      - "traefik.http.routers.app.rule=Host(`my.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.app.entrypoints=websecure"
+      - "traefik.http.routers.app.tls=true"
+      # Use Let's Encrypt if DOMAIN is set, otherwise use default cert
+      - "traefik.http.routers.app.tls.certresolver=${TRAEFIK_CERT_RESOLVER:-}"
+      # HTTP -> HTTPS redirect
+      - "traefik.http.routers.app-http.rule=Host(`my.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.app-http.entrypoints=web"
+      - "traefik.http.routers.app-http.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      # Point Traefik to the app's internal port
+      - "traefik.http.services.app.loadbalancer.server.port=9010"
+    depends_on:
+      - traefik
+    networks:
+      - web
+
+volumes:
+  letsencrypt:
+  personal-website-data:
+
+networks:
+  web:
+    driver: bridge

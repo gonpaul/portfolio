@@ -1,0 +1,43 @@
+# syntax=docker/dockerfile:1
+
+# -------- Base image for installing dependencies --------
+FROM node:20-bookworm-slim AS deps
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+COPY package*.json ./
+# Install full deps (dev deps needed for build)
+RUN npm ci
+
+# -------- Builder: build Next.js --------
+FROM node:20-bookworm-slim AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+# -------- Runner: production server using next start --------
+FROM node:20-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=9010
+
+# Create non-root user
+RUN groupadd -g 1001 nodejs \
+  && useradd -m -u 1001 -g nodejs nextjs
+
+# Install only production dependencies
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Copy built assets and required files
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
+USER nextjs
+EXPOSE 9010
+
+CMD ["npm", "start"]

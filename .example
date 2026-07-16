@@ -1,8 +1,15 @@
-# .env.local
-API_KEY=PASTE-YOUR-KEY
+# .env.local - Personal Website API
 
-# telegram
-TELEGRAM_BOT_TOKEN=PASTE-YOUR-TOKEN
-TELEGRAM_CHAT_ID=PASTE-YOUR-CHAT-ID
+# REQUIRED: API_KEY - shared secret for osbias webhook authentication
+API_KEY=***
 
-DB_PATH=/app/data/blog.db
+# Telegram notifications (optional)
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+
+# REQUIRED: CORS origins - comma-separated, origins allowed to make API requests
+# Must include your osbias domain (e.g., https://os.gonpaul.com)
+ALLOWED_ORIGINS=https://gonpaul.com,https://os.gonpaul.com
+
+# Database path (optional, defaults to /app/data/blog.db in Docker)
+# DB_PATH=/app/data/blog.db

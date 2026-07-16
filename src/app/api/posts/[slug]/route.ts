@@ -1,7 +1,39 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { parseMarkdown } from '@/lib/markdown';
-import { protectApiRoute } from '@/lib/auth';
+
+function getAllowedOrigins(): string[] {
+  const envOrigins = process.env.ALLOWED_ORIGINS;
+  // REQUIRE ALLOWED_ORIGINS - no fallback
+  if (!envOrigins) {
+    return [];
+  }
+  return envOrigins.split(',').map(o => o.trim()).filter(o => o);
+}
+
+function getCorsHeaders(request: NextRequest): Record<string, string> {
+  const origin = request.headers.get('origin');
+  const allowedOrigins = getAllowedOrigins();
+  const headers: Record<string, string> = {
+    'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  };
+  
+  if (origin && allowedOrigins.includes(origin)) {
+    headers['Access-Control-Allow-Origin'] = origin;
+    headers['Access-Control-Allow-Credentials'] = 'true';
+  }
+  
+  return headers;
+}
+
+function validateApiKey(request: NextRequest): boolean {
+  const authHeader = request.headers.get('authorization');
+  const apiKey = process.env.API_KEY;
+  
+  if (!apiKey || !authHeader) return false;
+  return authHeader.replace(/^Bearer\s+/i, '') === apiKey;
+}
 
 interface Post {
   id: number;
@@ -18,11 +50,19 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  // Check authentication
-  const authResponse = protectApiRoute(request);
-  if (authResponse) {
-    return authResponse;
+  // Handle CORS preflight
+  if (request.method === 'OPTIONS') {
+    return new NextResponse(null, { status: 204, headers: getCorsHeaders(request) });
   }
+
+  // Check authentication
+  if (!validateApiKey(request)) {
+    return NextResponse.json(
+      { error: 'Unauthorized', message: 'Valid API key required' },
+      { status: 401, headers: getCorsHeaders(request) }
+    );
+  }
+
   try {
     const { slug } = await params;
 
@@ -37,24 +77,23 @@ export async function GET(
     if (!post) {
       return NextResponse.json(
         { error: 'Post not found' },
-        { status: 404 }
+        { status: 404, headers: getCorsHeaders(request) }
       );
     }
 
     // Parse markdown content
     const { html, frontmatter } = parseMarkdown(post.content);
 
-    return NextResponse.json({
-      ...post,
-      html,
-      frontmatter
-    });
+    return NextResponse.json(
+      { ...post, html, frontmatter },
+      { headers: getCorsHeaders(request) }
+    );
 
   } catch (error) {
     console.error('Error fetching post:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
-      { status: 500 }
+      { status: 500, headers: getCorsHeaders(request) }
     );
   }
 }
