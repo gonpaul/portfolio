@@ -5,6 +5,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Image viewer scale-in animation - modern smooth */
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Site borders - using body padding instead of divs */
 
 /* Typing animation styles */
@@ -22,6 +40,7 @@
 
 :root {
   --gray: #9d9d9d;
+  background-color: #FFFFFF;
 }
 
 /* Custom markdown content styling */

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { workExperience, education, technicalSkills, socialLinks, personalInfo } from '@/lib/content';
+import WorkGallery from '@/components/WorkGallery';
 
 export default function About() {
   const t = useTranslations('About');
@@ -14,14 +15,14 @@ export default function About() {
       e.preventDefault();
       const target = e.target as HTMLAnchorElement;
       const href = target.getAttribute('href');
-      
+
       if (href && href.startsWith('#')) {
         const targetElement = document.querySelector(href);
         if (targetElement) {
           const offset = 160; // Account for fixed sidebar
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - offset;
-          
+
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
@@ -92,7 +93,7 @@ export default function About() {
                 </div>
 
                 <div className="flex gap-2 mb-4 justify-center">
-                  {[t('languages.english'), t('languages.russian')].map((language, index) => (
+                  {[t('languages.english'), t('languages.russian'), t('languages.german')].map((language, index) => (
                     <span key={index} className="bg-gray-100 text-gray-700 px-2 lg:px-3 py-1 rounded-full text-xs lg:text-sm">
                       {language}
                     </span>
@@ -197,7 +198,7 @@ export default function About() {
                     ))}
                   </ul>
                   {work.slug && (
-                    <Link 
+                    <Link
                       href={`/works/${work.slug}`}
                       className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
                     >
@@ -232,7 +233,7 @@ export default function About() {
                 ))}
             </div>
               </div>
-              
+
           {/* Technical Skills */}
           <div id="technical-skills" className="mb-16">
             <h2 className="text-2xl lg:text-3xl font-bold text-black mb-6 lg:mb-8">{t('headings.technicalSkills')}</h2>
@@ -243,7 +244,7 @@ export default function About() {
                   <p className="text-gray-700 mb-4">{t(`technicalSkillsData.${index}.description`)}</p>
                   <div className="flex flex-wrap gap-2">
                     {Array.from({ length: Number(t(`technicalSkillsData.${index}.tags.count`)) }, (_, tagIndex) => (
-                      <span 
+                      <span
                         key={tagIndex}
                         className="bg-white text-gray-700 px-3 py-1 rounded-md text-sm border"
                       >
@@ -259,26 +260,14 @@ export default function About() {
           {/* Certificates */}
           <div id="certificates" className="mb-16">
             <h2 className="text-2xl lg:text-3xl font-bold text-black mb-6 lg:mb-8">{t('headings.certificates')}</h2>
-            <div className="bg-gray-50 rounded-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center">
-                <Image 
-                  src="/images/ztm-complete-web-dev-course.png" 
-                  alt="Certificate"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto rounded-md shadow"
-                  priority={false}
-                />
-                <Image 
-                  src="/images/ztm-complete-machine-learning-and-ds.png" 
-                  alt="Certificate"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto rounded-md shadow"
-                  priority={false}
-                />
-              </div>
-            </div>
+            <WorkGallery
+              images={[
+                '/images/ztm-complete-web-dev-course.png',
+                '/images/ztm-complete-machine-learning-and-ds.png'
+              ]}
+              columns={2}
+              altPrefix="Certificate"
+            />
           </div>
 
           {/* Call to Action */}
@@ -288,7 +277,7 @@ export default function About() {
               <p className="text-gray-300 mb-6 text-sm lg:text-base">
                 {t('cta.text')}
               </p>
-              <Link 
+              <Link
                 href="/contact"
                 className="inline-block bg-white text-black px-6 lg:px-8 py-3 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 text-sm lg:text-base"
               >

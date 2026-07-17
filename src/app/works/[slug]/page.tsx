@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getWorkById, getAllWorks, Work } from '@/lib/works';
+import { getWorkById, getAllWorks } from '@/lib/works';
 import { getTranslations } from 'next-intl/server';
+import WorkGallery from '@/components/WorkGallery';
 
 interface WorkPageProps {
   params: Promise<{
@@ -25,8 +26,8 @@ export default async function WorkPage({ params }: WorkPageProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Back Button */}
         <div className="mb-8">
-          <Link 
-            href="/works" 
+          <Link
+            href="/works"
             className="inline-flex items-center text-gray-600 hover:text-black transition-colors duration-200"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,17 +47,18 @@ export default async function WorkPage({ params }: WorkPageProps) {
               Project {work.id.toString().padStart(3, '0')}
             </span>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl font-black text-black mb-6">
+
+          <h1 className="text-4xl md:text-6xl font-black text-black mb-6 flex items-baseline gap-4">
             {t(`items.${work.id}.title`)}
+            <span className="text-gray-500 text-end text-lg font-normal">{t(`items.${work.id}.date`)}</span>
           </h1>
-          
+
           <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
             {t(`items.${work.id}.description`)}
           </p>
         </div>
 
-        {/* Main Image */}
+        {/* Main Image - NOT clickable (per user request) */}
         <div className="mb-12">
           <div className="relative overflow-hidden rounded-lg shadow-2xl">
             <Image
@@ -111,7 +113,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
                 <h3 className="text-lg font-bold text-black mb-4">{t('sections.technologies')}</h3>
                 <div className="flex flex-wrap gap-2">
                   {work.technologies.map((tech, index) => (
-                    <span 
+                    <span
                       key={index}
                       className="bg-white text-gray-700 px-3 py-1 text-sm rounded-md border"
                     >
@@ -124,7 +126,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
               {/* Links */}
               <div className="space-y-3">
                 {work.liveUrl && (
-                  <a 
+                  <a
                     href={work.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -133,8 +135,8 @@ export default async function WorkPage({ params }: WorkPageProps) {
                     {t('buttons.liveDemo')}
                   </a>
                 )}
-                
-                <Link 
+
+                <Link
                   href="/works"
                   className="w-full bg-transparent border-2 border-black text-black px-6 py-3 font-medium hover:bg-black hover:text-white transition-all duration-200 transform hover:scale-105 text-center block rounded-lg"
                 >
@@ -147,22 +149,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
 
         {/* Gallery */}
         {work.gallery && work.gallery.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-black mb-6">{t('sections.gallery')}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {work.gallery.map((image, index) => (
-                <div key={index} className="relative overflow-hidden rounded-lg shadow-lg">
-                  <Image
-                    src={image}
-                    alt={`${work.title} - Image ${index + 1}`}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <WorkGallery images={work.gallery} workTitle={t(`items.${work.id}.title`)} />
         )}
       </div>
 

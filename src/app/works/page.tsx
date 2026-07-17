@@ -24,8 +24,8 @@ export default function Works() {
           {/* Works Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {works.slice().reverse().map((work) => (
-              <div 
-                key={work.id} 
+              <div
+                key={work.id}
                 className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group flex flex-col"
               >
                 <div className="relative overflow-hidden h-52">
@@ -44,21 +44,22 @@ export default function Works() {
                     </span>
                   </div>
                 </div>
-                
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-black mb-2 group-hover:text-blue-600 transition-colors duration-200">
+
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-black mb-2 pe-24 relative group-hover:text-blue-600 transition-colors duration-200">
                     <Link href={work.link}>
                       {t(`items.${work.id}.title`)}
                     </Link>
+                    <span className="absolute top-1 right-0 text-gray-500 text-xs">{t(`items.${work.id}.date`)}</span>
                   </h3>
                   <p className="text-gray-600 leading-relaxed mb-4 flex-grow">
                     {t(`items.${work.id}.description`)}
                   </p>
-                  
+
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {work.technologies.map((tech, index) => (
-                      <span 
+                      <span
                         key={index}
                         className="bg-gray-100 text-gray-700 px-2 py-1 text-xs rounded-md"
                       >
@@ -66,16 +67,16 @@ export default function Works() {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-2 mt-auto">
-                    <Link 
+                    <Link
                       href={work.link}
                       className="flex-1 bg-transparent border-2 border-black text-black px-4 py-2 font-medium hover:bg-black hover:text-white transition-all duration-200 transform hover:scale-105 text-center"
                     >
                       {t('buttons.viewDetails')}
                     </Link>
                     {work.liveUrl && (
-                      <a 
+                      <a
                         href={work.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"

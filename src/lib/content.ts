@@ -91,8 +91,8 @@ export const socialLinks = [
 export const personalInfo = {
   name: 'Pavel Goncharov',
   title: 'Software Engineer',
-  location: 'Europe/Saint-Petersburg',
-  languages: ['English', 'Russian'],
+  location: 'Asia/Gergia',
+  languages: ['English', 'Russian', 'German'],
   profileImage: '/images/profile2.jpg',
   introduction: `I'm Pavel Goncharov, a passionate software engineer with a focus on modern web technologies.
 I enjoy building scalable applications and exploring new technologies in the ever-evolving

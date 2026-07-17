@@ -8,6 +8,7 @@ export interface Work {
   technologies: string[];
   liveUrl?: string;
   category: string;
+  date: string;
   detailedDescription?: string;
   features?: string[];
   challenges?: string[];
@@ -19,17 +20,18 @@ export const works: Work[] = [
   {
     id: 1,
     title: 'SmartFace App',
+    date: 'September 2023',
     description: 'Full-stack application built with React and Node.js + Express.js on the backend. Features user authentication, database integration with PostgreSQL, and modern UI components.',
     image: '/images/work001-011.png',
     link: '/works/1',
     technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Knex'],
     liveUrl: 'https://smartface-uedw.onrender.com/',
     category: 'Full-Stack',
-    detailedDescription: 'The frontend app was built with React and Vite, using npm packages like tsparticles and parallax-tilt to make the visuals more appealing. Routing regarding authorization. For the backend app, Node, Express, bcrypt, and Knex are the main tools. Knex enables to connect to a database, retrieve and add the data. The register endpoint required me to use a transaction. Here, PostgreSQL with two tables also came in handy.',
+    detailedDescription: 'The frontend app was built with React and Vite, using npm packages like tsparticles and parallax-tilt to make the visuals more appealing. RBAC for users and guests. For the backend app, Node, Express, bcrypt, and Knex are the main tools. Knex enables to connect to a database and build queries. Here I first found out how to use transactions in db. PostgreSQL with two tables also came in handy.',
     features: [
       'User authentication and authorization',
       'Database integration with PostgreSQL',
-      'Modern UI with particle effects',
+      'Simple UI with particle effects',
       'Responsive design',
       'Secure password hashing with bcrypt'
     ],
@@ -44,8 +46,9 @@ export const works: Work[] = [
   {
     id: 2,
     title: 'Robofriends',
+    date: 'August 2023',
     description: 'React application that demonstrates fundamental React concepts including hooks, components, and one-way data flow. Features API integration and search functionality.',
-    image: '/images/work002-011.png',
+    image: '/images/work002-01.png',
     link: '/works/2',
     technologies: ['React', 'JavaScript', 'API Integration'],
     liveUrl: 'https://gonpaul.github.io/robofriends_vite/',
@@ -63,11 +66,13 @@ export const works: Work[] = [
       'Implementing efficient search algorithms',
       'API integration and data fetching',
       'Component reusability and props passing'
-    ]
+    ],
+    gallery: ['/images/work02-hover.jpg', '/images/work002-011.png', '/images/texture2.jpg']
   },
   {
     id: 3,
     title: 'Unidesign Layout',
+    date: 'March 2024',
     description: 'Custom layout built completely from scratch as an exercise. Focuses on responsive design principles and modern CSS techniques.',
     image: '/images/work003-01.png',
     link: '/works/3',
@@ -90,8 +95,9 @@ export const works: Work[] = [
   {
     id: 4,
     title: 'Portfolio Website',
+    date: 'June 2025',
     description: 'Modern portfolio website built with Next.js, featuring responsive design, blog functionality, and contact form integration.',
-    image: '/images/work004-02.png',
+    image: '/images/space.jpg',
     link: '/works/4',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     category: 'Full-Stack',
@@ -108,18 +114,20 @@ export const works: Work[] = [
       'Creating a responsive design system',
       'Integrating blog functionality',
       'Optimizing for SEO'
-    ]
+    ],
+    gallery: ['/images/work004-03.png', '/images/texture2.jpg', '/images/work004-02.png']
   },
   {
     id: 5,
     title: 'Onmars Real Estate Platform',
+    date: 'November 2025',
     description: 'Comprehensive business platform with custom UI/UX design, full-stack development, and automated CRM integration for seamless workflow management.',
-    image: '/images/work005-01.png',
+    image: '/images/work005-02.png',
     link: '/works/5',
     technologies: ['Next.js', 'Nest.js', 'Figma', 'Playwright', 'Python'],
     category: 'Full-Stack',
     detailedDescription: 'A complete business system built from scratch including UI/UX design, backend development, frontend application, admin panel, and automated synchronization for properties data update',
-    liveUrl: 'https://om.protactic.space/',
+    liveUrl: '',
     features: [
       'Complete UI/UX system designed in Figma',
       'Comprehensive backend built with Nest.js',
@@ -137,41 +145,20 @@ export const works: Work[] = [
       'Implementing automated synchronization scripts',
       'Developing role-based admin panel',
       'Ensuring data consistency across systems'
-    ]
+    ],
+    gallery: ['/images/work005-01.png', '/images/work001-04.jpg', '/images/work005-03.png']
   },
-  // {
-  //   id: 6,
-  //   title: 'E-commerce Platform',
-  //   description: 'Complete e-commerce solution with shopping cart, payment integration, and admin dashboard for product management.',
-  //   image: '/images/work004-02.jpg',
-  //   link: '/works/6',
-  //   technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-  //   category: 'Full-Stack',
-  //   detailedDescription: 'A comprehensive e-commerce platform with full shopping cart functionality, payment processing, and administrative features.',
-  //   features: [
-  //     'Shopping cart functionality',
-  //     'Payment processing with Stripe',
-  //     'User authentication',
-  //     'Admin dashboard',
-  //     'Product management system'
-  //   ],
-  //   challenges: [
-  //     'Implementing secure payment processing',
-  //     'Managing complex state in shopping cart',
-  //     'Creating admin interface',
-  //     'Database design for e-commerce'
-  //   ]
-  // },
   {
     id: 6,
-    title: 'Osbias - Text Editor for Enhanced Thinking',
-    description: 'Comprehensive cognitive enhancement platform that combines structured thinking frameworks with AI-powered assistance to help users become better thinkers and more intentional humans.',
-    image: '/images/work006-01.png',
+    title: 'Osbias - Cognitive journal',
+    date: 'May 2026',
+    description: 'Text editor that combines structured thinking frameworks with AI-powered assistance to help users become better thinkers and more intentional humans.',
+    image: '/images/work006-15.png',
     link: '/works/6',
     technologies: ['Next.js', 'Redux', 'React Hooks', 'Docker', 'SQLite'],
     category: 'Full-Stack',
-    detailedDescription: 'A mature cognitive enhancement platform that bridges personal knowledge management and collaborative reasoning. Features sophisticated journal editing, AI-powered assistance, thinking frameworks, goal management, and comprehensive publishing capabilities. Built with production-ready infrastructure including 15+ API endpoints, complete documentation, and advanced features.',
-    liveUrl: "https://osbias.protactic.space/",
+    detailedDescription: "A service that bridges personal knowledge management and reasoning templates. Features sophisticated journal editing, AI-powered assistance, thinking frameworks, goal management, and basic publishing capabilities. Built with 15+ API endpoints, clear documentation, and advanced features.",
+    liveUrl: "https://os.gonpaul.com",
     features: [
       'Sophisticated CodeMirror-based journal editor with framework-guided writing',
       'Real-time AI chat integration for cognitive assistance and bias checking',
@@ -196,7 +183,46 @@ export const works: Work[] = [
       'Optimizing performance with advanced React hooks',
       'Managing complex state with Redux across the application',
       'Setting up reliable deployment pipeline with Docker and VPS'
-    ]
+    ],
+    gallery: ['/images/work006-11.png', '/images/work006-12.png', '/images/work006-14.png']
+  },
+  {
+    id: 7,
+    title: 'GuildGrad - Edtech',
+    date: 'June 2026',
+    description: 'A service that brings the power of technology to english learners. It combines courses, community clubs and language practice in one place',
+    image: '/images/work007-01.jpg',
+    link: '/works/7',
+    technologies: ['Next.js', 'React Hooks', 'Tailwind', 'CVA + Tailwind merge', 'ReactMarkdown', 'Docker', 'SQLite', 'Paddle', 'Clerk'],
+    category: 'Full-Stack',
+    detailedDescription: "A service that bridges personal knowledge management and reasoning templates. Features sophisticated journal editing, AI-powered assistance, thinking frameworks, goal management, and basic publishing capabilities. Built with 15+ API endpoints, clear documentation, and advanced features.",
+    liveUrl: "https://guildgrad.com",
+    features: [
+      'Sophisticated CodeMirror-based journal editor with framework-guided writing',
+      'Real-time AI chat integration for cognitive assistance and bias checking',
+      'Idea validation and paraphrasing capabilities powered by AI',
+      'Create and apply thinking frameworks (First Principles, OODA Loop, etc.)',
+      'Goal management with actionable items and progress tracking',
+      'Publish entries to public feed for collaborative reasoning',
+      'Export work in multiple formats for external use',
+      'Template systems for consistent thinking patterns',
+      'Complete user authentication and admin panels',
+      'Rate limiting and security features',
+      'Keyboard shortcuts and modern dark-themed UI',
+      '15+ API endpoints with complete Swagger documentation',
+      'SQLite database with proper migrations and production-ready infrastructure'
+    ],
+    challenges: [
+      'Defining product features and creating effective roadmap',
+      'Organizing development workflow using Scrum methodology',
+      'Building scalable full-stack architecture with Next.js',
+      'Designing comprehensive database architecture',
+      'Implementing role-based access control system',
+      'Optimizing performance with advanced React hooks',
+      'Managing complex state with Redux across the application',
+      'Setting up reliable deployment pipeline with Docker and VPS'
+    ],
+    gallery: ['/images/work007-02.png', '/images/work007-03.png', '/images/work007-04.png', '/images/work007-05.png', '/images/work007-06.png', '/images/work007-07.png']
   }
 ];
 
