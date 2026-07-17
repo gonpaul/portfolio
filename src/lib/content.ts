@@ -2,6 +2,22 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export const workExperience = [
   {
+    company: 'GuildGrad',
+    role: 'Full-stack Developer & Founder',
+    timeframe: 'July 2026',
+    achievements: [
+      'Built core platform with lessons, exercises, and day streak tracking',
+      'Implemented RBAC model with three user tiers synced with Paddle billing',
+      'Integrated Clerk authentication and Merchant of Records setup',
+      'Created community features including voting and proposals',
+      'Designed responsive UI for mobile and desktop experiences',
+      'Configured deployment on Hetzner VPS with Coolify and Cloudflare',
+      'Managed SSL, DNS, and production infrastructure setup',
+      'Implemented notification system for user engagement'
+    ],
+    workSlug: '7'
+  },
+  {
     company: 'Personal SaaS Project',
     role: 'Full-Stack Developer & Product Manager',
     timeframe: '2025 - Present',
@@ -78,7 +94,7 @@ export const technicalSkills = [
   {
     title: 'Tools & Technologies',
     description: 'Version control, deployment, platforms and development tools',
-    tags: ['Git', 'Docker', 'AWS', 'GCP', 'n8n', 'Cursor']
+    tags: ['Git', 'Docker', 'GCP', 'n8n', 'Cursor', 'Paddle', 'Clerk', 'JWT']
   }
 ];
 

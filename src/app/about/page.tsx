@@ -178,6 +178,7 @@ export default function About() {
             <h2 className="text-2xl lg:text-3xl font-bold text-black mb-6 lg:mb-8">{t('headings.workExperience')}</h2>
             <div className="space-y-8">
               {[
+                { key: 'guildgrad', slug: '7' },
                 { key: 'personalSaaS', slug: '6' },
                 { key: 'onmars', slug: '5' },
                 { key: 'smartFace', slug: '1' },

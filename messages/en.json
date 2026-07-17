@@ -114,16 +114,35 @@
         "title": "Tools & Technologies",
         "description": "Version control, deployment, platforms and development tools",
         "tags": {
-          "count": "5",
+          "count": "8",
           "0": "Git",
           "1": "Docker",
           "2": "GCP",
           "3": "n8n",
-          "4": "Cursor"
+          "4": "Cursor",
+          "5": "Paddle",
+          "6": "Clerk",
+          "7": "JWT"
         }
       }
     },
     "workExperience": {
+      "guildgrad": {
+        "company": "GuildGrad",
+        "role": "Full-stack developer & Founder",
+        "timeframe": "July 2026",
+        "achievements": {
+          "0": "Built core platform with lessons, exercises, and day streak tracking",
+          "1": "Implemented RBAC model with three user tiers synced with Paddle billing",
+          "2": "Integrated Clerk authentication and Merchant of Records setup",
+          "3": "Created community features including voting and proposals",
+          "4": "Designed responsive UI for mobile and desktop experiences",
+          "5": "Configured deployment on Hetzner VPS with Coolify and Cloudflare",
+          "6": "Managed SSL, DNS, and production infrastructure setup",
+          "7": "Implemented notification system for user engagement"
+        },
+        "achievementsCount": "8"
+      },
       "personalSaaS": {
         "company": "Osbias",
         "role": "Full-Stack Developer & Product Manager",
